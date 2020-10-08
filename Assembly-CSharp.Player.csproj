@@ -57,8 +57,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BundleLoad.cs" />
     <Compile Include="Assets\Scripts\PopupPanel\PopupPanel.cs" />
-    <Compile Include="Assets\Scripts\Starter.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
+    <Compile Include="Assets\Scripts\Starter.cs" />
+    <Compile Include="Assets\Scripts\NewsPopupTransportContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

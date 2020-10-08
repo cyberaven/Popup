@@ -252,4 +252,5 @@ MonoBehaviour:
   BundleLoadPrefab: {fileID: 8084798298348597414, guid: 9466127b2fdefe0488f23af67583c29e, type: 3}
   BundleURL: https://dropfiles.ru/files/fcb6c85e4491e824e0366d9a41bdb93c.popuppanelbundle
   AssetName: PopupPanel
-  Version: 12
+  Version: 15
+  NewsPopupTransportContainer: {fileID: 7484948737869294035, guid: b08f9e6bb370dd743aa62b575c69daa9, type: 3}

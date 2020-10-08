@@ -13,21 +13,35 @@ public class Starter : MonoBehaviour
     [SerializeField] private string AssetName = "PopupPanel";
     [SerializeField] private int Version = 0;
 
+    [SerializeField] private NewsPopupTransportContainer NewsPopupTransportContainer;
+
     private void OnEnable()
     {
-        BundleLoad.BundleInstantiateEvent += LoadLobySceneEvent;
+        BundleLoad.BundleLoadEndEvent += BundleLoadEnd;        
     }
     private void OnDisable()
     {
-        BundleLoad.BundleInstantiateEvent -= LoadLobySceneEvent;
+        BundleLoad.BundleLoadEndEvent -= BundleLoadEnd;
     }
 
 
     private void Start()
     {
+        //создаем контайнер для передачи между сценами
+        NewsPopupTransportContainer = Instantiate(NewsPopupTransportContainer);
+
         //загружаем бандл и инстантируем.
         BundleLoad = Instantiate(BundleLoadPrefab);
         BundleLoad.LoadBundle(BundleURL, AssetName, Version);
+
+        //тут будем читать джсон и его даные записывать в контейнер.
+    }
+
+    private void BundleLoadEnd(GameObject obj)
+    {        
+        NewsPopupTransportContainer.Popup = obj;      
+
+        LoadLobySceneEvent();  
     }
 
     void LoadLobySceneEvent()

@@ -10,8 +10,8 @@ public class BundleLoad : MonoBehaviour
     private string AssetName;
     private int Version;
 
-    public delegate void BundleInstantiate();
-    public static event BundleInstantiate BundleInstantiateEvent;
+    public delegate void BundleLoadEnd(GameObject obj);
+    public static event BundleLoadEnd BundleLoadEndEvent;
 
 
     public void LoadBundle(string bundleURL, string assetName, int version)
@@ -39,9 +39,8 @@ public class BundleLoad : MonoBehaviour
 
         if(www.error == null)
         {
-            GameObject obj = (GameObject)bundle.LoadAsset(AssetName);
-            Instantiate(obj);
-            BundleInstantiateEvent?.Invoke();           
+            GameObject obj = (GameObject)bundle.LoadAsset(AssetName);            
+            BundleLoadEndEvent?.Invoke(obj);           
         }
         else
         {

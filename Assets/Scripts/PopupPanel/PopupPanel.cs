@@ -19,8 +19,7 @@ public class PopupPanel : MonoBehaviour
         PurchaseButtonText = PurchaseButton.GetComponentInChildren<Text>();
         BgImage = BgImage.GetComponent<Image>();
         DescriptionText = DescriptionText.GetComponent<Text>();
-        TitleText = TitleText.GetComponent<Text>();
-        DontDestroyOnLoad(this.gameObject);
+        TitleText = TitleText.GetComponent<Text>();    
     }
 
     public void Show(string descriptionText, string titleText, string purchaseButtonText, Sprite bgImage)

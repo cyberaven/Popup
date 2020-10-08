@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {    
+    private NewsPopupTransportContainer NewsPopupTransportContainer;
+
     private void Start()
     {
-        GameObject.Find("PopupPanel(Clone)").transform.SetParent(this.transform);
+        NewsPopupTransportContainer =  GameObject.Find("NewsPopupTransportContainer(Clone)").GetComponent<NewsPopupTransportContainer>();
+        GameObject newsPopup = NewsPopupTransportContainer.Popup;
+        Instantiate(newsPopup, transform);
     }
 }
