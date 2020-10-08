@@ -13,9 +13,13 @@ public class Starter : MonoBehaviour
     [SerializeField] private string AssetName = "PopupPanel";
     [SerializeField] private int Version = 0;
 
-    private void Awake()
+    private void OnEnable()
     {
         BundleLoad.BundleInstantiateEvent += LoadLobySceneEvent;
+    }
+    private void OnDisable()
+    {
+        BundleLoad.BundleInstantiateEvent -= LoadLobySceneEvent;
     }
 
 
